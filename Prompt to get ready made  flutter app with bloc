@@ -1,0 +1,94 @@
+I want you to generate a **full, production-ready Flutter project** with the following features and architecture, using **BLoC for state management**:
+
+1. **Centralized architecture**:
+   - **Colors** in a single `AppColors` class with **light and dark colors** and **methods that return colors based on current theme**, e.g.:
+     ```dart
+     import 'package:flutter/material.dart';
+
+     class AppColors {
+       static const Color lightCard = Colors.white;
+       static const Color darkCard = Colors.grey;
+
+       static const Color lightText = Colors.black;
+       static const Color darkText = Colors.white;
+
+       static Color cardColor(BuildContext context) =>
+           Theme.of(context).brightness == Brightness.dark ? darkCard : lightCard;
+
+       static Color textColor(BuildContext context) =>
+           Theme.of(context).brightness == Brightness.dark ? darkText : lightText;
+     }
+     ```
+   - **Texts** in `AppTexts`.
+   - **TextStyles** in `AppTextStyles`.
+   - **Padding, margin, font scaling** in `AppDimensions`.
+   - **Light and Dark theme** in `AppThemes`.
+   - Centralized **API service class** with GET, POST, PUT, DELETE, timeout & error handling.
+   - Centralized **internet connectivity checker**.
+   - Centralized **loading dialog / progress indicator**.
+   - Centralized **routing system** with named routes.
+
+2. **Form fields and validation**:
+   - Support **all input types**: Text, Number, Email, Password, Dropdown, Radio, Checkbox, Switch, Date Picker.
+   - **Live validation while typing** with debounce.
+   - Show **error text below fields**.
+   - Invalid fields show **red border**.
+   - Scroll to first invalid field on submit.
+   - Reusable `ValidatedField` widget for all field types.
+
+3. **State management**:
+   - Use **BLoC** pattern for managing all screen states.
+   - Separate **Event**, **State**, and **Bloc** classes for each feature.
+   - Form validation, API calls, and theme switching handled via BLoC.
+
+4. **API handling**:
+   - Centralized class handles GET, POST, PUT, DELETE.
+   - Handles network errors, timeouts.
+   - Shows **snackbar or toast** on API error.
+   - JSON response parsed into model classes.
+   - API calls integrated with **BLoC** states (loading, success, failure).
+
+5. **Routing & Navigation**:
+   - Named route system.
+   - Pass data between screens.
+
+6. **Loading & Progress**:
+   - Centralized loading overlay/dialog.
+   - Works automatically with BLoC loading states.
+
+7. **Internet connectivity**:
+   - Detect offline.
+   - Show alert/snackbar.
+   - Auto-retry option.
+
+8. **Responsiveness**:
+   - Adaptive layouts for phone/tablet.
+   - Centralized padding, font scaling, dimensions.
+
+9. **Dark/Light theme support**:
+   - Theme-aware colors, text styles, widgets.
+   - Toggle theme support.
+
+10. **Folder structure**:
+    ```
+    lib/
+      core/           // Colors, texts, textstyles, dimensions, themes
+      utils/          // Validators, debouncer, api, internet checking
+      widgets/        // Reusable widgets like validated field, loading dialog
+      screens/        // All screens
+      models/         // Data models
+      routes/         // Route management
+      blocs/          // BLoC folders with event, state, bloc
+      main.dart
+    ```
+
+11. **Additional requirements**:
+    - Proper null safety.
+    - Clean, scalable, production-ready code.
+    - Comments for clarity.
+    - Example **form screen** demonstrating all field types and validation using BLoC.
+    - Example **API call screen** integrated with BLoC for loading/error/success.
+    - Example **routing between multiple screens** passing data.
+    - Fully **theme-aware centralized color class** like the example provided.
+
+Now, generate the **full Flutter code** in a ready-to-run structure, using **BLoC** for all state management and keeping all the features above.
