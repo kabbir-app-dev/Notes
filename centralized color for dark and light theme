@@ -1,0 +1,26 @@
+Create a centralized color manager class for dark and light theme
+
+----------------------------------------
+
+import 'package:flutter/material.dart';
+
+class AppColors {
+  // Define the colors for light and dark
+  static const Color lightCard = Colors.white;
+  static const Color darkCard = Colors.grey;
+
+  static const Color lightText = Colors.black;
+  static const Color darkText = Colors.white;
+
+  // Method to return color based on theme
+  static Color cardColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark ? darkCard : lightCard;
+  }
+
+  static Color textColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark ? darkText : lightText;
+  }
+}
+
+
+====================================================================
